@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할머니 생신 축하드려요~!</title>
+    <style>
+        @font-face {
+            font-family: '양진체';
+            src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Ownglyph_wiseelist-Rg';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/Ownglyph_wiseelist-Rg.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: '양진체', sans-serif;
+            text-align: center;
+            background-color: #FFE4E1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .active {
+            display: flex;
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #ff4080d5;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+        .letter {
+            font-family: 'Ownglyph_wiseelist-Rg', cursive;
+            font-size: 2.2em;
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 650px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .btn {
+            margin-top: 30px;
+            padding: 18px 35px;
+            font-size: 1.8em;
+            color: white;
+            background: #ff4080ab;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            background: #af1045;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container active" id="page1">
+        <h1>할머니, 생신 축하드려요~! 🎉</h1>
+        <button class="btn" onclick="nextPage(2)">다음</button>
+    </div>
+    
+    <div class="container" id="page2">
+        <div class="letter">
+            <img src="deco.png" class="balloons" alt="풍선" style="width: 100%; height: auto;">
+            <p>할머니! 생신 축하드려요 💖<br><br>
+            매우 큰 할머니의 사랑!<br>
+            가슴깊이 늘 간직하고 있습니다.<br>
+            언제나 건강하시구요!<br>
+            할머니의 자랑스러운 손자가<br>
+            될 수 있도록 더 노력할게요.<br>
+            항상 행복하세요! 😊<br>
+            사랑합니다! 💕<br>
+            <br>
+            From 정후</p>
+        </div>
+        <button class="btn" onclick="nextPage(3)">다음</button>
+    </div>
+    
+    <div class="container" id="page3">
+        <h1>🎁 선물이 도착했어요! 🎁</h1>
+        <p style="font-size: 2em;">할머니를 위한 깜짝 선물이 준비되어 있어요! 💕</p>
+        <div class="gift-box"></div>
+        <button class="btn" onclick="nextPage(4)">선물 받으러 가기</button>
+    </div>
+
+    <div class="container" id="page4">
+        <h1>🎊 선물을 받으세요! 🎊</h1>
+        <p style="font-size: 1.5em;">할머니, 생신 축하드려요! 🎁<br>선물을 받으려면 비밀번호를 입력해주세요.</p>
+        <p style="font-size: 1.5em; color: #555;">힌트: 냉장고 안을 확인해보세요! 🧐</p>
+        <input type="password" id="giftPassword" maxlength="4" style="font-size: 1.5em; padding: 10px;">
+        <button class="btn" onclick="checkPasswordAndNextPage()">선물 확인</button>
+    </div>
+
+    <div class="container" id="page5">
+        <div id="giftContent" style="display: none; margin-top: 20px;">
+            <p style="font-size: 2em;">할머니를 위한 기프티콘이에요! 💖</p>
+            <img src="gift.png" alt="기프티콘" style="width: 300px;">
+        </div>
+        <button class="btn" onclick="nextPage(1)">처음으로</button>
+    </div>
+
+    <script>
+        function checkPasswordAndNextPage() {
+            const password = document.getElementById("giftPassword").value;
+            if (password === "2947") {
+                nextPage(5);
+                document.getElementById("giftContent").style.display = "block";
+            } else {
+                alert("비밀번호가 틀렸어요! 다시 확인해 주세요.");
+            }
+        }
+
+        function nextPage(pageNumber) {
+            const pages = document.querySelectorAll('.container');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
