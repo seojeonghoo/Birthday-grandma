@@ -32,12 +32,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 10px;
         }
         .active {
             display: flex;
         }
         h1 {
-            font-size: 3.5em;
+            font-size: 1.9em;
             color: #ff4080d5;
             animation: bounce 1s infinite alternate;
         }
@@ -47,9 +48,9 @@
         }
         .letter {
             font-family: 'Ownglyph_wiseelist-Rg', cursive;
-            font-size: 2.2em;
+            font-size: 1.5em;
             background: #FFFFFF;
-            padding: 35px;
+            padding: 20px;
             border-radius: 20px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
             width: 90%;
@@ -63,9 +64,9 @@
             100% { opacity: 1; transform: scale(1); }
         }
         .btn {
-            margin-top: 30px;
-            padding: 18px 35px;
-            font-size: 1.8em;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.2em;
             color: white;
             background: #ff4080ab;
             border: none;
@@ -104,22 +105,22 @@
     
     <div class="container" id="page3">
         <h1>🎁 선물이 도착했어요! 🎁</h1>
-        <p style="font-size: 2em;">할머니를 위한 깜짝 선물이 준비되어 있어요! 💕</p>
+        <p style="font-size: 1.2em;">할머니를 위한 깜짝 선물이 준비되어 있어요! 💕</p>
         <div class="gift-box"></div>
         <button class="btn" onclick="nextPage(4)">선물 받으러 가기</button>
     </div>
 
     <div class="container" id="page4">
         <h1>🎊 선물을 받으세요! 🎊</h1>
-        <p style="font-size: 1.5em;">할머니, 생신 축하드려요! 🎁<br>선물을 받으려면 비밀번호를 입력해주세요.</p>
-        <p style="font-size: 1.5em; color: #555;">힌트: 냉장고 안을 확인해보세요! 🧐</p>
-        <input type="password" id="giftPassword" maxlength="4" style="font-size: 1.5em; padding: 10px;">
+        <p style="font-size: 1.2em;">할머니, 생신 축하드려요! 🎁<br>선물을 받으려면 비밀번호를 입력해주세요.</p>
+        <p style="font-size: 1.2em; color: #555;">힌트: 냉장고 안을 확인해보세요! 🧐</p>
+        <input type="password" id="giftPassword" maxlength="4" style="font-size: 1.2em; padding: 10px;">
         <button class="btn" onclick="checkPasswordAndNextPage()">선물 확인</button>
     </div>
 
     <div class="container" id="page5">
         <div id="giftContent" style="display: none; margin-top: 20px;">
-            <p style="font-size: 2em;">할머니를 위한 기프티콘이에요! 💖</p>
+            <p style="font-size: 1.5em;">할머니를 위한 기프티콘이에요! 💖</p>
             <img src="gift.JPEG" alt="기프티콘" style="width: 300px;">
         </div>
         <button class="btn" onclick="nextPage(1)">처음으로</button>
